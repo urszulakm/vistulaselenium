@@ -3,27 +3,37 @@ package org.vistula.selenium.test.homework;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
     private WebDriver driver;
+
+    @FindBy(id = "email" )
     private WebElement emailForm;
+
+    @FindBy(id = "password")
     private WebElement passwordForm;
+
+    @FindBy(id = "login")
     private WebElement loginButton;
 
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        initElements();
+        PageFactory.initElements(driver, this);
+
+      /*  initElements();*/
 
     }
 
-    private void initElements() {
+ /*   private void initElements() {
         emailForm = driver.findElement(By.id("email"));
         passwordForm = driver.findElement(By.id("password"));
         loginButton = driver.findElement(By.id("login"));
     }
-
+*/
     public void shouldLogin(String login, String password) {
 
         emailForm.sendKeys(login);

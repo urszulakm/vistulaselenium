@@ -1,14 +1,9 @@
 package org.vistula.selenium.test.homework;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ArenaCreateProjectRefactoredTest extends ArenaTest {
 
@@ -18,9 +13,8 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.shouldLogin("administrator@testarena.pl", "sumXQQ72$L");
 
-
-        WebElement adminpanel = driver.findElement(By.className("header_admin"));
-        adminpanel.click();
+        AdminPanel adminPanel = new AdminPanel(driver);
+        adminPanel.shouldClickCockpit();
 
         WebElement addProjectButton = driver.findElement(By.className("button_link_li"));
         addProjectButton.click();
@@ -28,7 +22,6 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
         WebElement insertName = driver.findElement(By.id("name"));
         String randomProjectName = RandomStringUtils.randomAlphabetic(10);
         insertName.sendKeys(randomProjectName);
-
 
         WebElement insertPrefix = driver.findElement(By.id("prefix"));
         String randomProjectPrefix = RandomStringUtils.randomAlphanumeric(10);
