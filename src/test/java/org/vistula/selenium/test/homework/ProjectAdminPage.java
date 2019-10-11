@@ -5,25 +5,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AdminPanel {
+public class ProjectAdminPage {
 
     private WebDriver driver;
 
-    @FindBy(className = "header_admin" )
-    private WebElement adminPanel;
+    @FindBy (className = "button_link_li")
+    private WebElement addProjectButton;
 
-    public AdminPanel(WebDriver driver){
+    public ProjectAdminPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
 
     }
 
-    public void shouldClickCockpit(){
-        adminPanel.click();
+    public void shouldClickAddProject(){
+        addProjectButton.click();
     }
 
 
-/*
-    WebElement adminpanel = driver.findElement(By.className("header_admin"));
-        adminpanel.click();*/
 }
+

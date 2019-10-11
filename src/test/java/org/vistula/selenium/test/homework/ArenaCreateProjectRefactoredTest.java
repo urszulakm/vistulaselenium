@@ -16,10 +16,21 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
         AdminPanel adminPanel = new AdminPanel(driver);
         adminPanel.shouldClickCockpit();
 
-        WebElement addProjectButton = driver.findElement(By.className("button_link_li"));
+        ProjectAdminPage projectAdminPage = new ProjectAdminPage(driver);
+        projectAdminPage.shouldClickAddProject();
+
+        AddProjectPage addProjectPage = new AddProjectPage(driver);
+        String randomProjectName = RandomStringUtils.randomAlphabetic(10);
+        String randomProjectPrefix = RandomStringUtils.randomAlphanumeric(10);
+        addProjectPage.shouldCreateProject(randomProjectName, randomProjectPrefix);
+
+
+       /* WebElement addProjectButton = driver.findElement(By.className("button_link_li"));
         addProjectButton.click();
 
-        WebElement insertName = driver.findElement(By.id("name"));
+       */
+
+       /* WebElement insertName = driver.findElement(By.id("name"));
         String randomProjectName = RandomStringUtils.randomAlphabetic(10);
         insertName.sendKeys(randomProjectName);
 
@@ -28,7 +39,7 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
         insertPrefix.sendKeys(randomProjectPrefix);
 
         WebElement saveProject = driver.findElement(By.id("save"));
-        saveProject.click();
+        saveProject.click(); */
 
         WebElement projectPanel = driver.findElement(By.className("item2"));
         projectPanel.click();
