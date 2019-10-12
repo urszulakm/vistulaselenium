@@ -12,6 +12,12 @@ public class ProjectAdminPage {
     @FindBy (className = "button_link_li")
     private WebElement addProjectButton;
 
+    @FindBy (id = "search")
+    private WebElement searchProjectField;
+
+    @FindBy (id = "j_searchButton")
+    private WebElement searchProjectButton;
+
     public ProjectAdminPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -22,6 +28,12 @@ public class ProjectAdminPage {
         addProjectButton.click();
     }
 
+    public void shouldEnterSearchedProjectName(String randomProjectName){
+        searchProjectField.sendKeys(randomProjectName);
+        }
 
+    public void shouldClickSearchProject(){
+        searchProjectButton.click();
+    }
 }
 

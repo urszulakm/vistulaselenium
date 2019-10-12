@@ -41,22 +41,23 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
         WebElement saveProject = driver.findElement(By.id("save"));
         saveProject.click(); */
 
-        WebElement projectPanel = driver.findElement(By.className("item2"));
-        projectPanel.click();
+       ProjectPanel projectPanel = new ProjectPanel(driver);
+       projectPanel.shouldClickProjectList();
 
-        WebElement searchProject = driver.findElement(By.id("search"));
-        searchProject.sendKeys(randomProjectName);
+      /* WebElement projectPanel = driver.findElement(By.className("item2"));
+        projectPanel.click();*/
+
+        projectAdminPage.shouldEnterSearchedProjectName(randomProjectName);
+
+      /*  WebElement searchProject = driver.findElement(By.id("search"));
+        searchProject.sendKeys(randomProjectName);*/
+
+        projectAdminPage.shouldClickSearchProject();
 
         WebElement searchProjectButton = driver.findElement(By.id("j_searchButton"));
         searchProjectButton.click();
 
-
-
-
-
     }
-
-
-
+    
 
 }
