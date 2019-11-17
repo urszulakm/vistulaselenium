@@ -30,6 +30,6 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
         projectAdminPage.shouldClickSearchProject();
 
         projectAdminPage.waitForProjectPrefixData();
-        projectAdminPage.verifyProjectWithPrefixExists(randomProjectPrefix);
+        projectAdminPage.verifyProjectWithPrefixExists(randomProjectPrefix, randomProjectName);
     }
 }

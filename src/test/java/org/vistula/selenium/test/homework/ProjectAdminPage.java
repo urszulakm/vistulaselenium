@@ -44,9 +44,12 @@ public class ProjectAdminPage {
                 .until(ExpectedConditions.presenceOfElementLocated(By.className("t_number")));
     }
 
-    public void verifyProjectWithPrefixExists(String projectPrefix) {
+    public void verifyProjectWithPrefixExists(String projectPrefix, String projectName) {
         WebElement tableData = driver.findElement(By.className("t_number"));
+        WebElement table = driver.findElement(By.cssSelector("table"));
+
         Assertions.assertThat(tableData.getText()).contains(projectPrefix);
+        Assertions.assertThat(table.getText()).contains(projectName);
     }
 }
 
