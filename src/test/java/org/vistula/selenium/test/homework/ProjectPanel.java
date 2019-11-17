@@ -1,6 +1,5 @@
 package org.vistula.selenium.test.homework;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,8 +19,6 @@ public class ProjectPanel {
 
     public void shouldClickProjectList() {
             projectList.click();
-
-}
-
+    }
 }
 

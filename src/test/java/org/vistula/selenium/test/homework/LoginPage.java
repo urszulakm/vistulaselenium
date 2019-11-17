@@ -23,17 +23,8 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
-      /*  initElements();*/
-
     }
 
- /*   private void initElements() {
-        emailForm = driver.findElement(By.id("email"));
-        passwordForm = driver.findElement(By.id("password"));
-        loginButton = driver.findElement(By.id("login"));
-    }
-*/
     public void shouldLogin(String login, String password) {
 
         emailForm.sendKeys(login);

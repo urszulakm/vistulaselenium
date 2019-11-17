@@ -20,7 +20,6 @@ public class AddProjectPage {
     public  AddProjectPage (WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
     }
 
     public void shouldCreateProject(String projectName, String prefix){
@@ -28,9 +27,6 @@ public class AddProjectPage {
         addPrefixName.sendKeys(prefix);
         saveProjectButton.click();
     }
-
-
-
 }
 
 

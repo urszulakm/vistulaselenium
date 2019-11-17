@@ -2,8 +2,6 @@ package org.vistula.selenium.test.homework;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class ArenaCreateProjectRefactoredTest extends ArenaTest {
 
@@ -21,43 +19,17 @@ public class ArenaCreateProjectRefactoredTest extends ArenaTest {
 
         AddProjectPage addProjectPage = new AddProjectPage(driver);
         String randomProjectName = RandomStringUtils.randomAlphabetic(10);
-        String randomProjectPrefix = RandomStringUtils.randomAlphanumeric(10);
+        String randomProjectPrefix = RandomStringUtils.randomAlphanumeric(6);
         addProjectPage.shouldCreateProject(randomProjectName, randomProjectPrefix);
 
-
-       /* WebElement addProjectButton = driver.findElement(By.className("button_link_li"));
-        addProjectButton.click();
-
-       */
-
-       /* WebElement insertName = driver.findElement(By.id("name"));
-        String randomProjectName = RandomStringUtils.randomAlphabetic(10);
-        insertName.sendKeys(randomProjectName);
-
-        WebElement insertPrefix = driver.findElement(By.id("prefix"));
-        String randomProjectPrefix = RandomStringUtils.randomAlphanumeric(10);
-        insertPrefix.sendKeys(randomProjectPrefix);
-
-        WebElement saveProject = driver.findElement(By.id("save"));
-        saveProject.click(); */
-
-       ProjectPanel projectPanel = new ProjectPanel(driver);
-       projectPanel.shouldClickProjectList();
-
-      /* WebElement projectPanel = driver.findElement(By.className("item2"));
-        projectPanel.click();*/
+        ProjectPanel projectPanel = new ProjectPanel(driver);
+        projectPanel.shouldClickProjectList();
 
         projectAdminPage.shouldEnterSearchedProjectName(randomProjectName);
 
-      /*  WebElement searchProject = driver.findElement(By.id("search"));
-        searchProject.sendKeys(randomProjectName);*/
-
         projectAdminPage.shouldClickSearchProject();
 
-        WebElement searchProjectButton = driver.findElement(By.id("j_searchButton"));
-        searchProjectButton.click();
-
+        projectAdminPage.waitForProjectPrefixData();
+        projectAdminPage.verifyProjectWithPrefixExists(randomProjectPrefix);
     }
-    
-
 }

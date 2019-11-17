@@ -15,15 +15,9 @@ public class AdminPanel {
     public AdminPanel(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
     }
 
     public void shouldClickCockpit(){
         adminPanel.click();
     }
-
-
-/*
-    WebElement adminpanel = driver.findElement(By.className("header_admin"));
-        adminpanel.click();*/
 }
